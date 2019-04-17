@@ -2,6 +2,7 @@ class Myclass{
     public <T> void print(T t){
         System.out.println(t);
     }
+    
     public <T> T print1(T t){
         return t;
     }
