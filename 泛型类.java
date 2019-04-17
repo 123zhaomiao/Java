@@ -3,7 +3,6 @@ class Point<T>{
    private T y;
     /**
      * 这不叫泛型方法，只是返回值是一个泛型
-     * @return
      */
     public T getX() {
         return x;
