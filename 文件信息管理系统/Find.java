@@ -21,8 +21,8 @@ public class Find extends JPanel implements ActionListener {
 	TextField aText;
 	JButton delBt;
 	JScrollPane scrollpane;
-	JTable table;	//Õ¹Ê¾Áã¼şĞÅÏ¢±í¸ñ
-	Font font = new Font("ËÎÌå", Font.BOLD, 20);
+	JTable table;	//å±•ç¤ºé›¶ä»¶ä¿¡æ¯è¡¨æ ¼
+	Font font = new Font("å®‹ä½“", Font.BOLD, 20);
 	
 	public Find()
 	{
@@ -36,13 +36,13 @@ public class Find extends JPanel implements ActionListener {
 	}
 	private void init()
 	{
-		label = new JLabel("ÇëÊäÈëÒª²éÑ¯µÄÎÄ¼şÃû");
-		label.setFont(new Font("ËÎÌå", Font.BOLD,22));
+		label = new JLabel("è¯·è¾“å…¥è¦æŸ¥è¯¢çš„æ–‡ä»¶å");
+		label.setFont(new Font("å®‹ä½“", Font.BOLD,22));
 		label.setSize(300, 30);
 		label.setLocation(180, 2);
 		this.add(label);
 		
-		aLabel = new JLabel("ÎÄ¼şÃû");
+		aLabel = new JLabel("æ–‡ä»¶å");
 		aLabel.setFont(font);
 		aLabel.setSize(100, 40);
 		aLabel.setLocation(50, 40);
@@ -54,7 +54,7 @@ public class Find extends JPanel implements ActionListener {
 		aText.setLocation(200, 40);
 		this.add(aText);
 		
-		delBt = new JButton("²éÑ¯");
+		delBt = new JButton("æŸ¥è¯¢");
 		delBt.setFont(font);
 		delBt.setSize(120, 40);
 		delBt.setLocation(450, 40);
@@ -64,10 +64,10 @@ public class Find extends JPanel implements ActionListener {
 
 	
 	
-	//±í¸ñÉè¼Æ
+	//è¡¨æ ¼è®¾è®¡
 	private void refreshTable()
 	{
-		String[] titles = {"×÷ÕßĞÕÃû", "ÎÄ¼şÃû", "ÎÄ¼şÄÚÈİ"};
+		String[] titles = {"ä½œè€…å§“å", "æ–‡ä»¶å", "æ–‡ä»¶å†…å®¹"};
 		DAO pdao = new DAO();
 		ArrayList<Text> parts = pdao.findAllParts();
 		Object[][] objs = new Object[parts.size()][3];
@@ -90,17 +90,17 @@ public class Find extends JPanel implements ActionListener {
 	
 	
 	public void actionPerformed(ActionEvent e) {
-		//ÅĞ¶ÏÓÃ»§ÊäÈëÎª¿Õ
+		//åˆ¤æ–­ç”¨æˆ·è¾“å…¥ä¸ºç©º
 		if(checkIsNull())
 		{
-			JOptionPane.showMessageDialog(this, "ÎÄ¼şÃûÊäÈëÎª¿Õ");
+			JOptionPane.showMessageDialog(this, "æ–‡ä»¶åè¾“å…¥ä¸ºç©º");
 			return ;
 		}
 		
-			//ÅĞ¶ÏÊäÈëĞÅÏ¢ÊÇ·ñÓĞÎó
+			//åˆ¤æ–­è¾“å…¥ä¿¡æ¯æ˜¯å¦æœ‰è¯¯
 			if(isError())
 			{
-				JOptionPane.showMessageDialog(this, "ÎÄ¼şÃû²»´æÔÚ");
+				JOptionPane.showMessageDialog(this, "æ–‡ä»¶åä¸å­˜åœ¨");
 				aText.setText("");
 				return ;
 			}
@@ -114,7 +114,7 @@ public class Find extends JPanel implements ActionListener {
 		
 	
 	
-	//ÅĞ¶ÏÓÃ»§ÊäÈëÊÇ·ñÎª¿Õ
+	//åˆ¤æ–­ç”¨æˆ·è¾“å…¥æ˜¯å¦ä¸ºç©º
 	private boolean checkIsNull()
 	{
 		if ("".equals(aText.getText().trim()) || aText.getText() == null) {
