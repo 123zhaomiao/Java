@@ -10,33 +10,33 @@ import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 
 public class DAO {
-	//»ñµÃÊı¾İ¿âÁ¬½Ó¶ÔÏó
+	//è·å¾—æ•°æ®åº“è¿æ¥å¯¹è±¡
 		public Connection connToMySql(){
 			Connection conn;
 			try {
-				//¼ÓÔØMySQL JDBCÇı¶¯³ÌĞò£¬""ÖĞÎªÇı¶¯³ÌĞòÃû
+				//åŠ è½½MySQL JDBCé©±åŠ¨ç¨‹åºï¼Œ""ä¸­ä¸ºé©±åŠ¨ç¨‹åºå
 				Class.forName("com.mysql.jdbc.Driver");
-				//ÅäÖÃÁ¬½Ó×Ö·û´®
+				//é…ç½®è¿æ¥å­—ç¬¦ä¸²
 				String url = "jdbc:mysql://localhost:3306/java_dir";
-				String user = "root";	//ÓÃ»§Ãû
-				String password = "12345";	//ÃÜÂë
-				// getConnection()·½·¨£¬Á¬½ÓMySQLÊı¾İ¿â
+				String user = "root";	//ç”¨æˆ·å
+				String password = "12345";	//å¯†ç 
+				// getConnection()æ–¹æ³•ï¼Œè¿æ¥MySQLæ•°æ®åº“
 				conn = DriverManager.getConnection(url, user, password);
 				if(!conn.isClosed()){
-					System.out.println("³É¹¦Á¬½ÓÊı¾İ¿â");
+					System.out.println("æˆåŠŸè¿æ¥æ•°æ®åº“");
 				}
-				//·µ»Ø¶ÔÓ¦µÄÊı¾İ¿âÁ¬½Ó¶ÔÏó
+				//è¿”å›å¯¹åº”çš„æ•°æ®åº“è¿æ¥å¯¹è±¡
 				return conn;
 				
 			} 
 			catch (ClassNotFoundException e) {
-				// Êı¾İ¿âÇı¶¯Òì³£´¦Àí
-				System.out.println("Ã»ÓĞÕÒµ½¶ÔÓ¦µÄÊı¾İ¿âÇı¶¯Àà");
+				// æ•°æ®åº“é©±åŠ¨å¼‚å¸¸å¤„ç†
+				System.out.println("æ²¡æœ‰æ‰¾åˆ°å¯¹åº”çš„æ•°æ®åº“é©±åŠ¨ç±»");
 				e.printStackTrace();
 			} 
 			catch (SQLException e) {
-				//Êı¾İ¿âÁ¬½ÓÒì³£´¦Àí
-				System.out.println("Êı¾İ¿âÁ¬½Ó»òÕßÊı¾İ²Ù×÷Ê§°Ü");
+				//æ•°æ®åº“è¿æ¥å¼‚å¸¸å¤„ç†
+				System.out.println("æ•°æ®åº“è¿æ¥æˆ–è€…æ•°æ®æ“ä½œå¤±è´¥");
 				e.printStackTrace();
 			}
 			catch (Exception e){
@@ -44,7 +44,7 @@ public class DAO {
 			}
 			return null;
 		}
-		// ²éÑ¯ÎÄµµĞÅÏ¢
+		// æŸ¥è¯¢æ–‡æ¡£ä¿¡æ¯
 		public Text findPartByNum(String texName){
 			Connection conn = null;	
 			Statement st = null;
@@ -52,18 +52,18 @@ public class DAO {
 			Text pa = new Text();
 			
 			try {
-				//»ñµÃÊı¾İµÄÁ¬½Ó
+				//è·å¾—æ•°æ®çš„è¿æ¥
 				conn = connToMySql();
-				//»ñµÃStatement¶ÔÏó
+				//è·å¾—Statementå¯¹è±¡
 				st = conn.createStatement();
-				//·¢ËÍsqlÓï¾ä
+				//å‘é€sqlè¯­å¥
 				StringBuffer querySql = new StringBuffer();
 				
 				querySql.append("select * from text where textname='");
 				querySql.append(texName);
 				querySql.append("'");
 				rs = st.executeQuery(querySql.toString());
-				//´¦Àí½á¹û¼¯
+				//å¤„ç†ç»“æœé›†
 				while(rs.next()){
 					pa.setAuthorName(rs.getString("authorname"));
 					pa.setTextName(rs.getString("textname"));
@@ -71,14 +71,14 @@ public class DAO {
 				
 				}
 			} catch (SQLException e) {
-				// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+				// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 				e.printStackTrace();
 			}
 			return pa;
 		}
 		
 		
-		// ²éÑ¯ËùÓĞÎÄµµĞÅÏ¢
+		// æŸ¥è¯¢æ‰€æœ‰æ–‡æ¡£ä¿¡æ¯
 		public ArrayList<Text> findAllParts(){
 			Connection conn = null;	
 			Statement st = null;
@@ -86,16 +86,16 @@ public class DAO {
 			ArrayList<Text> parts = new ArrayList<Text>();
 			
 			try {
-				//»ñµÃÊı¾İµÄÁ¬½Ó
+				//è·å¾—æ•°æ®çš„è¿æ¥
 				conn = connToMySql();
-				//»ñµÃStatement¶ÔÏó
+				//è·å¾—Statementå¯¹è±¡
 				st = conn.createStatement();
-				//·¢ËÍsqlÓï¾ä
+				//å‘é€sqlè¯­å¥
 				StringBuffer querySql = new StringBuffer();
 				
 				querySql.append("select * from text;");
 				rs = st.executeQuery(querySql.toString());
-				//´¦Àí½á¹û¼¯
+				//å¤„ç†ç»“æœé›†
 				while(rs.next()){
 					Text pa = new Text();
 					pa.setAuthorName(rs.getString("authorname"));
@@ -105,13 +105,13 @@ public class DAO {
 					parts.add(pa);
 				}
 			} catch (SQLException e) {
-				// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+				// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 				e.printStackTrace();
 			}
 			return parts;
 		}
 	
-		//Ôö¼ÓÒ»ÌõÑ§Éú¼ÇÂ¼
+		//å¢åŠ ä¸€æ¡å­¦ç”Ÿè®°å½•
 		public boolean addPart(String aname, String cname,String content)
 		{
 			StringBuffer insertSql = new StringBuffer();
@@ -125,15 +125,15 @@ public class DAO {
 			PreparedStatement ps = null;
 			
 			try {
-				//»ñµÃÊı¾İµÄÁ¬½Ó
+				//è·å¾—æ•°æ®çš„è¿æ¥
 				Connection conn = connToMySql();
-				//»ñµÃStatement¶ÔÏó
+				//è·å¾—Statementå¯¹è±¡
 				ps = conn.prepareStatement(insertSql.toString());
 				ps.executeUpdate();	
 				return true;
 			} 
 			catch (Exception e) {
-				// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+				// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 				return false;
 			}
 			finally {
@@ -141,7 +141,7 @@ public class DAO {
 					try {
 						ps.close();
 					} catch (SQLException e) {
-						// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+						// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 						e.printStackTrace();
 					}
 					ps = null;
@@ -150,7 +150,7 @@ public class DAO {
 		}
 		
 	
-		// É¾³ıÒ»ÌõÁã¼ş¼ÇÂ¼
+		// åˆ é™¤ä¸€æ¡é›¶ä»¶è®°å½•
 		public boolean deletePart(String cname)
 		{
 			StringBuffer deleteSql = new StringBuffer();
@@ -159,15 +159,15 @@ public class DAO {
 			deleteSql.append("';");
 			PreparedStatement ps = null;
 			try {
-				//»ñµÃÊı¾İµÄÁ¬½Ó
+				//è·å¾—æ•°æ®çš„è¿æ¥
 				Connection conn = connToMySql();
-				//»ñµÃStatement¶ÔÏó
+				//è·å¾—Statementå¯¹è±¡
 				ps = conn.prepareStatement(deleteSql.toString());
 				ps.executeUpdate();
 				return true;
 			} 
 			catch (SQLException e) {
-				// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+				// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 				e.printStackTrace();
 				return false;
 			}
@@ -176,14 +176,14 @@ public class DAO {
 					try {
 						ps.close();
 					} catch (SQLException e) {
-						// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+						// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 						e.printStackTrace();
 					}
 					ps = null;
 				}
 			}	
 		}
-		//ĞŞ¸ÄÒ»ÌõÁã¼ş¼ÇÂ¼
+		//ä¿®æ”¹ä¸€æ¡é›¶ä»¶è®°å½•
 		public boolean updatePart(String aname, String cname,String content) {
 			StringBuffer updateSql = new StringBuffer();
 			updateSql.append("update text set authorname='");
@@ -197,15 +197,15 @@ public class DAO {
 			updateSql.append("';");
 			PreparedStatement ps = null;
 			try {
-				//»ñµÃÊı¾İµÄÁ¬½Ó
+				//è·å¾—æ•°æ®çš„è¿æ¥
 				Connection conn = connToMySql();
-				//»ñµÃStatement¶ÔÏó
+				//è·å¾—Statementå¯¹è±¡
 				ps = conn.prepareStatement(updateSql.toString());
 				ps.executeUpdate();
 				return true;
 			} 
 			catch (SQLException e) {
-				// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+				// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 				e.printStackTrace();
 				return false;
 			}
@@ -214,7 +214,7 @@ public class DAO {
 					try {
 						ps.close();
 					} catch (SQLException e) {
-						// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+						// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 						e.printStackTrace();
 					}
 					ps = null;
