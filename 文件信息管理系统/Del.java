@@ -20,8 +20,8 @@ public class Del extends JPanel implements ActionListener{
 	TextField aText;
 	JButton delBt;
 	JScrollPane scrollpane;
-	JTable table;	//Õ¹Ê¾Áã¼şĞÅÏ¢±í¸ñ
-	Font font = new Font("ËÎÌå", Font.BOLD, 15);
+	JTable table;	//å±•ç¤ºé›¶ä»¶ä¿¡æ¯è¡¨æ ¼
+	Font font = new Font("å®‹ä½“", Font.BOLD, 15);
 	
 	public Del()
 	{
@@ -35,8 +35,8 @@ public class Del extends JPanel implements ActionListener{
 	}
 	private void init()
 	{
-		label = new JLabel("ÇëÊäÈëÒªÉ¾³ıµÄÎÄ¼şÃû");
-		label.setFont(new Font("ËÎÌå", Font.BOLD,22));
+		label = new JLabel("è¯·è¾“å…¥è¦åˆ é™¤çš„æ–‡ä»¶å");
+		label.setFont(new Font("å®‹ä½“", Font.BOLD,22));
 		label.setSize(300, 30);
 		label.setLocation(180, 2);
 		this.add(label);
@@ -53,17 +53,17 @@ public class Del extends JPanel implements ActionListener{
 		aText.setLocation(200, 40);
 		this.add(aText);
 		
-		delBt = new JButton("É¾³ı");
+		delBt = new JButton("åˆ é™¤");
 		delBt.setFont(font);
 		delBt.setSize(120, 40);
 		delBt.setLocation(450, 40);
 		delBt.addActionListener(this);
 		this.add(delBt);	
 	}
-	//±í¸ñÉè¼Æ
+	//è¡¨æ ¼è®¾è®¡
 	private void refreshTable()
 	{
-		String[] titles = {"×÷ÕßĞÕÃû", "ÎÄ¼şÃû", "Ö÷ÒªÄÚÈİ"};
+		String[] titles = {"ä½œè€…å§“å", "æ–‡ä»¶å", "ä¸»è¦å†…å®¹"};
 		DAO pdao = new DAO();
 		ArrayList<Text> parts = pdao.findAllParts();
 		Object[][] objs = new Object[parts.size()][3];
@@ -84,34 +84,34 @@ public class Del extends JPanel implements ActionListener{
 		this.add(scrollpane);
 	}
 	public void actionPerformed(ActionEvent e) {
-		//ÅĞ¶ÏÓÃ»§ÊäÈëÎª¿Õ
+		//åˆ¤æ–­ç”¨æˆ·è¾“å…¥ä¸ºç©º
 		if(!checkIsNull())
 		{
-			JOptionPane.showMessageDialog(this, "ÎÄ¼şÃûÊäÈëÎª¿Õ");
+			JOptionPane.showMessageDialog(this, "æ–‡ä»¶åè¾“å…¥ä¸ºç©º");
 			return;
 		}
-		//ÅĞ¶ÏÎÄ¼şÃû³¤¶È
+		//åˆ¤æ–­æ–‡ä»¶åé•¿åº¦
         if (isExit()) {
-            JOptionPane.showMessageDialog(this, "ÎÄ¼şÃû²»´æÔÚ");
+            JOptionPane.showMessageDialog(this, "æ–‡ä»¶åä¸å­˜åœ¨");
             aText.setText("");
             return ;
         }
-				//´´½¨Ò»¸ö²Ù×÷Áã¼şĞÅÏ¢ÎÄ±¾ÎÄ¼şµÄ¶ÔÏó
+				//åˆ›å»ºä¸€ä¸ªæ“ä½œé›¶ä»¶ä¿¡æ¯æ–‡æœ¬æ–‡ä»¶çš„å¯¹è±¡
 				DAO dao = new DAO();
 				if(dao.deletePart(aText.getText().trim()))
 				{
-					JOptionPane.showMessageDialog(this, "É¾³ıÎÄµµ¼ÇÂ¼³É¹¦");
+					JOptionPane.showMessageDialog(this, "åˆ é™¤æ–‡æ¡£è®°å½•æˆåŠŸ");
 				
 					aText.setText("");
 					refreshTable();
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(this, "É¾³ıÎÄµµ¼ÇÂ¼Ê§°Ü");
+					JOptionPane.showMessageDialog(this, "åˆ é™¤æ–‡æ¡£è®°å½•å¤±è´¥");
 					aText.setText("");
 				}
 			}
-	//ÅĞ¶ÏÓÃ»§ÊäÈëÊÇ·ñÎª¿Õ
+	//åˆ¤æ–­ç”¨æˆ·è¾“å…¥æ˜¯å¦ä¸ºç©º
 	private boolean checkIsNull()
 	{
 		boolean flag=true;
