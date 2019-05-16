@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 
 
 public class Add  extends JPanel implements ActionListener{
-	JLabel label;   //ÌáÊ¾±êÇ©
+	JLabel label;   //æç¤ºæ ‡ç­¾
 	JLabel authorLabel;
 	JLabel nameLabel;
 	JLabel contentLabel;
@@ -25,8 +25,8 @@ public class Add  extends JPanel implements ActionListener{
 	
 	JButton addBt;
 	JScrollPane scrollpane;
-	JTable table;	//Õ¹Ê¾ÎÄµµĞÅÏ¢±í¸ñ
-	Font font = new Font("ËÎÌå", Font.BOLD, 20);
+	JTable table;	//å±•ç¤ºæ–‡æ¡£ä¿¡æ¯è¡¨æ ¼
+	Font font = new Font("å®‹ä½“", Font.BOLD, 20);
 	
 	public Add()
 	{
@@ -41,13 +41,13 @@ public class Add  extends JPanel implements ActionListener{
 	
 	private void init()
 	{
-		label = new JLabel("ÇëÊäÈëÒªÌí¼ÓµÄĞÅÏ¢");
-		label.setFont(new Font("ËÎÌå", Font.BOLD,15));
+		label = new JLabel("è¯·è¾“å…¥è¦æ·»åŠ çš„ä¿¡æ¯");
+		label.setFont(new Font("å®‹ä½“", Font.BOLD,15));
 		label.setSize(200, 30);
 		label.setLocation(230, 2);
 		this.add(label);
 		
-		authorLabel = new JLabel("×÷ÕßĞÕÃû");
+		authorLabel = new JLabel("ä½œè€…å§“å");
 		authorLabel.setFont(font);
 		authorLabel.setSize(100, 30);
 		authorLabel.setLocation(50, 40);
@@ -59,7 +59,7 @@ public class Add  extends JPanel implements ActionListener{
 		authorText.setLocation(30, 80);
 		this.add(authorText);
 		
-		nameLabel = new JLabel("ÎÄ¼şÃû");
+		nameLabel = new JLabel("æ–‡ä»¶å");
 		nameLabel.setFont(font);
 		nameLabel.setSize(100, 30);
 		nameLabel.setLocation(200, 40);
@@ -70,7 +70,7 @@ public class Add  extends JPanel implements ActionListener{
 		nameText.setLocation(180, 80);
 		this.add(nameText);
 		
-		contentLabel = new JLabel("ÎÄ¼şÄÚÈİ");
+		contentLabel = new JLabel("æ–‡ä»¶å†…å®¹");
 		contentLabel.setFont(font);
 		contentLabel.setSize(100, 30);
 		contentLabel.setLocation(350, 40);
@@ -83,7 +83,7 @@ public class Add  extends JPanel implements ActionListener{
 		
 
 		
-		addBt = new JButton("Ìí¼Ó");
+		addBt = new JButton("æ·»åŠ ");
 		addBt.setFont(font);
 		addBt.setSize(120, 40);
 		addBt.setLocation(260, 130);
@@ -91,10 +91,10 @@ public class Add  extends JPanel implements ActionListener{
 		this.add(addBt);
 	}
 	
-	   //±í¸ñÉè¼Æ
+	   //è¡¨æ ¼è®¾è®¡
 		private void refreshTable()
 		{
-			String[] titles = {"×÷ÕßĞÕÃû", "ÎÄ¼şÃû", "ÎÄ¼şÄÚÈİ"};
+			String[] titles = {"ä½œè€…å§“å", "æ–‡ä»¶å", "æ–‡ä»¶å†…å®¹"};
 			DAO pdao = new DAO();
 			ArrayList<Text> parts = pdao.findAllParts();
 			Object[][] objs = new Object[parts.size()][3];
@@ -117,17 +117,17 @@ public class Add  extends JPanel implements ActionListener{
 		
 		 public void actionPerformed(ActionEvent e)
 		    {
-		        //ÅĞ¶ÏÎÄ¼şÃûÎª¿Õ
+		        //åˆ¤æ–­æ–‡ä»¶åä¸ºç©º
 		        if (isEmpty()) {
-		            JOptionPane.showMessageDialog(this, "×÷ÕßÃû»òÕßÎÄ¼şÃûÎª¿Õ");
+		            JOptionPane.showMessageDialog(this, "ä½œè€…åæˆ–è€…æ–‡ä»¶åä¸ºç©º");
 		            authorText.setText("");
 		            nameText.setText("");
 		            contentText.setText("");
 		            return ;
 		        }
-		        //ÅĞ¶ÏÎÄ¼şÃû³¤¶È
+		        //åˆ¤æ–­æ–‡ä»¶åé•¿åº¦
 		        if (isError()) {
-		            JOptionPane.showMessageDialog(this, "ÎÄ¼şÃû³¬³ö×Ö·û³¤¶ÈÏŞÖÆ");
+		            JOptionPane.showMessageDialog(this, "æ–‡ä»¶åè¶…å‡ºå­—ç¬¦é•¿åº¦é™åˆ¶");
 		            authorText.setText("");
 		            nameText.setText("");
 		            contentText.setText("");
@@ -139,17 +139,17 @@ public class Add  extends JPanel implements ActionListener{
 				DAO dao = new DAO();
 				if(dao.addPart(aname,cname,content))
 				{
-					JOptionPane.showMessageDialog(this, "Ìí¼Ó³É¹¦");
-					//Î´½øĞĞÇå¿Õ´¦Àí£¿
+					JOptionPane.showMessageDialog(this, "æ·»åŠ æˆåŠŸ");
+					//æœªè¿›è¡Œæ¸…ç©ºå¤„ç†ï¼Ÿ
 					authorText.setText("");
 					nameText.setText("");
 					contentText.setText("");
-					//Ìí¼Ó³É¹¦ºóË¢ĞÂ±í¸ñ
+					//æ·»åŠ æˆåŠŸååˆ·æ–°è¡¨æ ¼
 					refreshTable();	
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(this, "ÎÄ¼şÃûÖØ¸´£¬Ìí¼ÓÊ§°Ü");
+					JOptionPane.showMessageDialog(this, "æ–‡ä»¶åé‡å¤ï¼Œæ·»åŠ å¤±è´¥");
 					authorText.setText("");
 					nameText.setText("");
 					contentText.setText("");
@@ -166,7 +166,7 @@ public class Add  extends JPanel implements ActionListener{
 		    }
 		    private boolean isError()
 		    {
-		        //ÎÄ¼şÃû³¤¶È²»ÄÜ³¬¹ı10
+		        //æ–‡ä»¶åé•¿åº¦ä¸èƒ½è¶…è¿‡10
 		        if (nameText.getText().length() > 10)
 		            return true;
 		        return false;
