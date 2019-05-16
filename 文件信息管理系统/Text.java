@@ -1,12 +1,12 @@
-// ÓÃÀ´´´½¨ÊôĞÔ¼°get set Êı¾İ¿âÁ¬½Ó
+// ç”¨æ¥åˆ›å»ºå±æ€§åŠget set æ•°æ®åº“è¿æ¥
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Text {
-    private String authorName;  //×÷ÕßĞÕÃû
-    private String content;    //ÎÄ±¾ÄÚÈİ
-    private String textName;   //ÎÄ±¾Ãû
+    private String authorName;  //ä½œè€…å§“å
+    private String content;    //æ–‡æœ¬å†…å®¹
+    private String textName;   //æ–‡æœ¬å
   
 
     public String getAuthorName() {
@@ -36,18 +36,18 @@ public class Text {
     public Connection connectToMysql()
     {
         Connection con;
-        //Çı¶¯³ÌĞòÃû
+        //é©±åŠ¨ç¨‹åºå
         String driver = "com.mysql.jdbc.Driver";
-        //URLÖ¸ÏòÒª·ÃÎÊµÄÊı¾İ¿âÃû
+        //URLæŒ‡å‘è¦è®¿é—®çš„æ•°æ®åº“å
         String url = "jdbc:mysql://localhost:3306/java_dir";
-        //ÓÃ»§Ãû
+        //ç”¨æˆ·å
         String user = "root";
-        //ÃÜÂë
+        //å¯†ç 
         String password = "12345";
-        //±éÀú²éÑ¯½á¹û
+        //éå†æŸ¥è¯¢ç»“æœ
         try {
             Class.forName(driver);
-            //1.getConnection()·½·¨£¬Á´½ÓMySqlÊı¾İ¿â
+            //1.getConnection()æ–¹æ³•ï¼Œé“¾æ¥MySqlæ•°æ®åº“
             con = DriverManager.getConnection(url,user,password);
             if(!con.isClosed())
             {
@@ -55,12 +55,12 @@ public class Text {
             }
             return con;
         } catch (ClassNotFoundException e) {
-            //Êı¾İ¿âÇı¶¯Òì³£´¦Àí
-            System.out.println("Ã»ÓĞÕÒµ½Çı¶¯");
+            //æ•°æ®åº“é©±åŠ¨å¼‚å¸¸å¤„ç†
+            System.out.println("æ²¡æœ‰æ‰¾åˆ°é©±åŠ¨");
             e.printStackTrace();
         } catch (SQLException e) {
-            //Êı¾İ¿âÁ´½ÓÊ§°ÜÒì³£´¦Àí
-            System.out.println("Êı¾İ¿âÁ¬½ÓÊ§°Ü");
+            //æ•°æ®åº“é“¾æ¥å¤±è´¥å¼‚å¸¸å¤„ç†
+            System.out.println("æ•°æ®åº“è¿æ¥å¤±è´¥");
             e.printStackTrace();
         }
         return null;
