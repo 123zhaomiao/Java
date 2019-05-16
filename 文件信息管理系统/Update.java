@@ -25,8 +25,8 @@ public class Update extends JPanel implements ActionListener {
 	
 	JButton updateBt;
 	JScrollPane scrollpane;
-	JTable table;	//Õ¹Ê¾ÎÄµµĞÅÏ¢±í¸ñ
-	Font font = new Font("ËÎÌå", Font.BOLD, 20);
+	JTable table;	//å±•ç¤ºæ–‡æ¡£ä¿¡æ¯è¡¨æ ¼
+	Font font = new Font("å®‹ä½“", Font.BOLD, 20);
 	
 	public Update()
 	{
@@ -40,13 +40,13 @@ public class Update extends JPanel implements ActionListener {
 	}
 	private void init()
 	{
-		label = new JLabel("ÇëÊäÈëÒªĞŞ¸ÄµÄĞÅÏ¢");
-		label.setFont(new Font("ËÎÌå", Font.BOLD,15));
+		label = new JLabel("è¯·è¾“å…¥è¦ä¿®æ”¹çš„ä¿¡æ¯");
+		label.setFont(new Font("å®‹ä½“", Font.BOLD,15));
 		label.setSize(200, 30);
 		label.setLocation(230, 2);
 		this.add(label);
 		
-		authorLabel = new JLabel("×÷ÕßĞÕÃû");
+		authorLabel = new JLabel("ä½œè€…å§“å");
 		authorLabel.setFont(font);
 		authorLabel.setSize(100, 30);
 		authorLabel.setLocation(50, 40);
@@ -58,7 +58,7 @@ public class Update extends JPanel implements ActionListener {
 		authorText.setLocation(30, 80);
 		this.add(authorText);
 		
-		nameLabel = new JLabel("ÎÄ¼şÃû");
+		nameLabel = new JLabel("æ–‡ä»¶å");
 		nameLabel.setFont(font);
 		nameLabel.setSize(100, 30);
 		nameLabel.setLocation(200, 40);
@@ -69,7 +69,7 @@ public class Update extends JPanel implements ActionListener {
 		nameText.setLocation(180, 80);
 		this.add(nameText);
 		
-		contentLabel = new JLabel("ÎÄ¼şÄÚÈİ");
+		contentLabel = new JLabel("æ–‡ä»¶å†…å®¹");
 		contentLabel.setFont(font);
 		contentLabel.setSize(100, 30);
 		contentLabel.setLocation(350, 40);
@@ -82,17 +82,17 @@ public class Update extends JPanel implements ActionListener {
 		
 
 		
-		updateBt = new JButton("ĞŞ¸Ä");
+		updateBt = new JButton("ä¿®æ”¹");
 		updateBt.setFont(font);
 		updateBt.setSize(120, 40);
 		updateBt.setLocation(260, 130);
 		updateBt.addActionListener(this);
 		this.add(updateBt);
 	}
-	//±í¸ñÉè¼Æ
+	//è¡¨æ ¼è®¾è®¡
 	private void refreshTable()
 	{
-		String[] titles = {"×÷ÕßĞÕÃû", "ÎÄ¼şÃû", "ÎÄ¼şÄÚÈİ"};
+		String[] titles = {"ä½œè€…å§“å", "æ–‡ä»¶å", "æ–‡ä»¶å†…å®¹"};
 		DAO pdao = new DAO();
 		ArrayList<Text> parts = pdao.findAllParts();
 		Object[][] objs = new Object[parts.size()][3];
@@ -116,7 +116,7 @@ public class Update extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(isEmpty())	
 		{
-			JOptionPane.showMessageDialog(this, "×÷ÕßÃû»òÕß×÷ÕßÃûÎª¿Õ");
+			JOptionPane.showMessageDialog(this, "ä½œè€…åæˆ–è€…ä½œè€…åä¸ºç©º");
 			authorText.setText("");
 			nameText.setText("");
 			contentText.setText("");	
@@ -124,7 +124,7 @@ public class Update extends JPanel implements ActionListener {
 		}
 			if(isExit())
 			{
-				JOptionPane.showMessageDialog(this, "ÎÄ¼şÃû²»´æÔÚ");
+				JOptionPane.showMessageDialog(this, "æ–‡ä»¶åä¸å­˜åœ¨");
 				authorText.setText("");
 				nameText.setText("");
 				contentText.setText("");	
@@ -135,17 +135,17 @@ public class Update extends JPanel implements ActionListener {
 				String cname = nameText.getText().trim();
 				String content= contentText.getText().trim();	
 				
-				System.out.println("³É¹¦½øÈë");
+				System.out.println("æˆåŠŸè¿›å…¥");
 				if(dao.updatePart(aname,cname,content))
 				{
-					JOptionPane.showMessageDialog(this, "ĞŞ¸Ä³É¹¦");
-					//Ìí¼Ó³É¹¦ºóË¢ĞÂ±í¸ñ
+					JOptionPane.showMessageDialog(this, "ä¿®æ”¹æˆåŠŸ");
+					//æ·»åŠ æˆåŠŸååˆ·æ–°è¡¨æ ¼
 					refreshTable();
 						
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(this, "ĞŞ¸ÄÊ§°Ü");
+					JOptionPane.showMessageDialog(this, "ä¿®æ”¹å¤±è´¥");
 					
 				}
 				authorText.setText("");
