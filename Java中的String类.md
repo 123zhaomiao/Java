@@ -1,4 +1,4 @@
-﻿@[TOC]
+
 # String类
 完整类名：java.long.String 
 ## 1.1 String类的两种实例化
