@@ -27,6 +27,7 @@ public class Test {
         mul = a << count + a*(b-(1<<count));
         return mul;
     }
+    
     private static int num(int b){
         int sum = 1;
         int i;
