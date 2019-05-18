@@ -1,6 +1,5 @@
 class Sex{
     private String name;
-
     public Sex(String name) {
         this.name = name;
     }
