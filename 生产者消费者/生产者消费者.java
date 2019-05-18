@@ -1,7 +1,6 @@
 
 
 //notify notifyAll
-
 //package 生产者消费者模型;
 //class MyThread implements Runnable{
 //    private Object object ;
