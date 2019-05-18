@@ -1,5 +1,4 @@
 package 位运算.如何用移位操作实现乘法运算;
-
 import java.util.Scanner;
 public class Test {
     public static void main(String[] args) {
