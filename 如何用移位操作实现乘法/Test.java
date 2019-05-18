@@ -9,6 +9,7 @@ public class Test {
             System.out.println(a+"乘以"+b+"="+solution(a,b));
         }
     }
+    
     /**
      * 首先将b分解为: 2的n次方数+剩余的数
      * 9可以分解为：2^3+1
