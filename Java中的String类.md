@@ -9,6 +9,7 @@ java.long.String
 	System.out.println(str);
 ```
 ### 1.1.2 通过构造方法实例化
+
 &emsp;&emsp;String本身是个类，既然是类，那么就一定会有构造方法。
 ```java
 	//通过构造方法实例化String对象
