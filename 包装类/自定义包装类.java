@@ -11,6 +11,7 @@ class IntDemo{
         return this.value;
     }
 }
+
 public class Test {
     public static void main(String[] args) {
         //所有引用数据类型都可以直接赋值给Object
