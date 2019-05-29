@@ -5,7 +5,6 @@ class IntDemo{
     public IntDemo(int value) {
         this.value = value;
     }
-    
     //取出int值
     public int intValue(){
         return this.value;
