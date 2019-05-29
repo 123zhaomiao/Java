@@ -1,6 +1,8 @@
 
 # 1.Collections工具类
+
 ## 1.1 集合翻转reverse
+
 ```java
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,7 +21,9 @@ public class Test{
     }
 }
 ```
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190401153956709.png)
+
 ## 1.2 将所有指定的元素添加到指定的集合中 addAll
 ```java
 import java.util.ArrayList;
@@ -58,6 +62,7 @@ public class Test{
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2019040116165970.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW9fbWlhbw==,size_16,color_FFFFFF,t_70)
 <font color = red>集合乱序，每次输出都不一样</font>
 ## 1.4 集合填充 fill
+
 <font color="#dd0000">用指定的元素代替指定列表的所有元素。 </font>
 ```java
 import java.util.ArrayList;
