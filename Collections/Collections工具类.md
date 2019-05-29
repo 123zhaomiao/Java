@@ -1,4 +1,4 @@
-﻿@[toc]
+
 # 1.Collections工具类
 ## 1.1 集合翻转reverse
 ```java
