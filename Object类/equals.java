@@ -5,6 +5,7 @@ class Person{
         this.name = name;
         this.age = age;
     }
+    
     @Override
     public boolean equals(Object obj) {
         //1.如果obj为空 直接返回null
