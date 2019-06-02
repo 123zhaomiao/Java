@@ -4,7 +4,6 @@ public class Test{
         list.add("java");
         list.add("c");
         list.add("c++");
-
         list.add("数据结构");
         System.out.println("原始数据"+list);
         //1.集合翻转
