@@ -33,8 +33,4 @@ public class Test {
         System.out.println(obj);
     }
 }
---------------------- 
-作者：zhao_miao 
-来源：CSDN 
-原文：https://blog.csdn.net/zhao_miao/article/details/89033283 
-版权声明：本文为博主原创文章，转载请附上博文链接！
+
