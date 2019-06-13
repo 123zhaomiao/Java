@@ -2,7 +2,6 @@ class Person{
     private String name;
     private Integer age;
     private  Gender gender;
-
     public String getName() {
         return name;
     }
