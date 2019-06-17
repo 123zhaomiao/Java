@@ -27,7 +27,6 @@ class Person{
                 per.name.equals(this.name);
     }
 }
-
 public class Test {
     public static void main(String[] args) {
         Person per = new Person("张三", 20);
