@@ -11,7 +11,6 @@ public class Test {
 
     Scanner scanner=new Scanner(System.in);
     int thread;  //线程号
-
     //初始化
     public void getData(){
         System.out.println("请输入A,B,C三类资源的数目：");//输入A,B,C三类资源数量
