@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
-
 public class DAO {
 	//获得数据库连接对象
 		public Connection connToMySql(){
