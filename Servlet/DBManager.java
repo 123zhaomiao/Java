@@ -14,7 +14,6 @@ public class DBManager {
     public ResultSet rs = null;
 
     public DBManager(){}
-
     public Connection getConnection(){
         try {
             Class.forName(driver);
