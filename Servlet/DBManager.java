@@ -12,7 +12,6 @@ public class DBManager {
     public Connection conn = null;
     public Statement state = null;
     public ResultSet rs = null;
-
     public DBManager(){}
     public Connection getConnection(){
         try {
