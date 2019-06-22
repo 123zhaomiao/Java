@@ -24,7 +24,6 @@ public class DBManager {
         }
         return conn;
     }
-
     public ResultSet queryExecuteFun(String strSql){
         try {
             state = conn.createStatement();
