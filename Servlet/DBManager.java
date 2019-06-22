@@ -1,6 +1,5 @@
 package db;
 import java.sql.*;
-
 /**
  * 配置连接数据库类
  */
