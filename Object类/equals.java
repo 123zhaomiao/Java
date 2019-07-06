@@ -11,6 +11,7 @@ class Person{
         if(obj == null){
             return false;
         }
+        
         //2.如果两个对象的地址相同 直接返回true
         if(this == obj){
             return true;
