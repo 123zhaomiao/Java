@@ -4,6 +4,7 @@ class Point<T>{
     /**
      * 这不叫泛型方法，只是返回值是一个泛型
      */
+   
     public T getX() {
         return x;
     }
