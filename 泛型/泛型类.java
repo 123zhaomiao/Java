@@ -11,7 +11,6 @@ class Point<T>{
     public void setX(T x) {
         this.x = x;
     }
-
     public T getY() {
         return y;
     }
