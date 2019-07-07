@@ -19,6 +19,7 @@ class Point<T>{
         this.y = y;
     }
 }
+
 public class Test{
     public static void main(String[] args) {
         Point<Integer> point = new Point<>();
