@@ -9,5 +9,4 @@ public class Test {
         //3.通过Class类提供的静态方法forName()传入类的全名称取得Class对象
         System.out.println(Class.forName("java.util.Date"));
     }
-    
 }
