@@ -12,6 +12,7 @@ class IntDemo{
 }
 public class Test {
     public static void main(String[] args) {
+        
         //所有引用数据类型都可以直接赋值给Object
         Object obj = new IntDemo(10);
         IntDemo demo = (IntDemo)obj;
