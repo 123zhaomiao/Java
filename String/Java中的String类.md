@@ -8,4 +8,5 @@
 	String str="hello";
 	System.out.println(str);
 ```
+
 ### 1.1.2 通过构造方法
