@@ -1,6 +1,5 @@
 import java.util.LinkedList;
 import java.util.Queue;
-
 public class Test {
     public static void main(String[] args) {
         //1.创建一个队列
