@@ -24,6 +24,5 @@ public class Test {
         System.out.println(queue.isEmpty());
         //6.继续出队列 观察结果
         System.out.println(queue.poll());
-    }
-    
+    } 
 }
