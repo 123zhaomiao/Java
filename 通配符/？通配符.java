@@ -7,6 +7,7 @@ class Myclass<T>{
         this.t = t;
     }
 }
+
 public class Test{
     public static void main(String[] args) {
         Myclass<String> myClass = new Myclass<>();
