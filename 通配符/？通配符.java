@@ -17,9 +17,7 @@ public class Test{
         Myclass<Integer> myClass1 = new Myclass<>();
         myClass1.setT(123);
         print(myClass1);
-    }
-
-    /**
+    }    /**
      * 此方法的参数是个泛型
      * @param myClass
      */
