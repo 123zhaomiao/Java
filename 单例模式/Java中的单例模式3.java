@@ -9,6 +9,7 @@ class Singleton{
                 singleton = new Singleton();
             }
         }
+        
         return singleton;
     }
 }
