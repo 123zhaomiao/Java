@@ -2,8 +2,7 @@ class Sex{
     private String name;
     public Sex(String name) {
         this.name = name;
-    }
-    
+    }   
     private static Sex male = new Sex("男");
     private static Sex female = new Sex("女");
 
